@@ -1,0 +1,71 @@
+<p-toast position="top-center" key="tc"></p-toast>
+<p-blockUI [blocked]="blockedDocument"></p-blockUI>
+<div class=" mainwraper">
+    <div class="main">
+        <div>
+            <div class="row justify-content-md-center align-items-md-center">
+                <div class="text-center"><a href="/home"><img style="width: 200px;"
+                            src="../../../assets/images/header/logo.png"></a></div>
+            </div>
+            <div class="row justify-content-md-center align-items-md-center mt-3">
+                <div class=" col-md-6 col-sm-12 form-group" data-validate="Enter your name">
+                    <label>First Name <span>*</span></label>
+                    <input type="text" id="fn" name="firstName" class="form-control" placeholder="First name" required
+                        minlength="3" appForbiddenName="bob" [(ngModel)]="registerForm.firstName" #firstname="ngModel">
+
+                    <span>
+                        <small *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="alert">
+                            Enter at least 3 characters
+                        </small></span><br>
+                    <label>Last Name <span>*</span></label>
+                    <input type="text" id="ln" name="lastName" class="form-control" placeholder="last name" required
+                        minlength="2" appForbiddenName="bob" [(ngModel)]="registerForm.lastName" #lastname="ngModel">
+
+                    <span>
+                        <small *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="alert">
+                            Enter at least 2 characters
+                        </small>
+                    </span>
+
+
+                </div>
+            </div>
+            <div class="row justify-content-md-center align-items-md-center">
+                <div class=" col-md-6 col-sm-12 form-group login-form-Email">
+                    <label>Email <span>*</span></label>
+                    <input type="email" id="email" name="email" [(ngModel)]="registerForm.email" email
+                        #prmEmail="ngModel" class="form-control input4" placeholder="Email " required />
+                    <span><small *ngIf="prmEmail.errors?.email" style="color: red;">
+                            Primary Email not valid </small>
+                    </span>
+
+                </div>
+            </div>
+            <div class="row justify-content-md-center align-items-md-center">
+                <div class=" col-md-6 col-sm-12 form-group login-form-Email">
+                    <label>Password <span>*</span></label>
+                    <input type="password" [(ngModel)]='registerForm.password' class="form-control" name="password"
+                        #txtPassword="ngModel" compare-password="txtConfirmPassword"
+                        placeholder="At least 6 characters " parent="true" required>
+                    <div class="text-danger"
+                        *ngIf="txtPassword.dirty && txtPassword.errors && txtPassword.errors.required">Password
+                        is required </div>
+                    <a class="  forget" href=""> Forget password</a>
+                </div>
+            </div>
+
+
+            <div class="row justify-content-md-center align-items-md-center">
+                <div class=" col-md-6 col-sm-12 ">
+                    <button class="btn btn-primary form-control" (click)="register()">Sign Up</button>
+                </div>
+            </div>
+            <div class="row justify-content-md-center align-items-md-center">
+                <div class="col-md-6 col-sm-12">
+                    <span> <a href="/login" id="account"> Already have an account?</a>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

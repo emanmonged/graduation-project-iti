@@ -1,0 +1,89 @@
+<div class="p-3">
+
+    <h3 class="mb-3">Delivery Address: </h3>
+
+    <div class="form-floating my-3">
+        <input type="text" class="form-control" id="firstname" placeholder="First Name" name="firstname"
+            [(ngModel)]="editedAddress.firstName" [disabled]="edit">
+        <label for="firstname">First Name</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName"
+            [(ngModel)]="editedAddress.lastName" [disabled]="edit">
+        <label for="lastName">Last Name</label>
+    </div>
+
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="governorate">Governorate</label>
+        <select class="form-select" id="governorate" name="governorate" [(ngModel)]="editedAddress.governorate"
+            [disabled]="edit" (change)="changeGov($event)">
+            <option [value]="editedAddress.governorate">{{editedAddress.governorate}}</option>
+            <option value="Damietta">Damietta</option>
+            <option value="Ash Sharqia">Ash Sharqia</option>
+            <option value="Giza">Giza</option>
+            <option value="Suez">Suez</option>
+            <option value="Gharbia">Gharbia</option>
+            <option value="Dakahila">Dakahila</option>
+            <option value="Alexandria">Alexandria</option>
+            <option value="Asyut">Asyut</option>
+            <option value="Aswan">Aswan</option>
+            <option value="Cairo">Cairo</option>
+            <option value="Qalyubia">Qalyubia</option>
+            <option value="Beheria">Beheria</option>
+            <option value="Ismaillia">Ismaillia</option>
+            <option value="Red Sea">Red Sea</option>
+        </select>
+    </div>
+
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="city">City</label>
+        <select class="form-select" id="city" name="city" [(ngModel)]="editedAddress.city" [disabled]="edit">
+            <option [value]="editedAddress.city">{{editedAddress.city}}</option>
+        </select>
+    </div>
+
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="area">Area</label>
+        <select class="form-select" id="area" name="area" [(ngModel)]="editedAddress.area" [disabled]="edit">
+            <option [value]="editedAddress.area">{{editedAddress.area}}</option>
+        </select>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="street" placeholder="Street" name="street"
+            [(ngModel)]="editedAddress.street" [disabled]="edit">
+        <label for="street">Street</label>
+    </div>
+
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="locationType">Location Type</label>
+        <select class="form-select" id="locationType" name="locationType" [(ngModel)]="editedAddress.locationType"
+            [disabled]="edit">
+            <option [value]="editedAddress.locationType">{{editedAddress.locationType[0]?
+                editedAddress.locationType[0].toUpperCase() + editedAddress.locationType.substring(1): ''}}</option>
+        </select>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="street" placeholder="Phone" name="phone"
+            [(ngModel)]="editedAddress.phone" [disabled]="edit">
+        <label for="phone">Phone</label>
+    </div>
+
+    <div class="mb-3">
+        <label for="shippingNote" class="form-label">Shipping Note</label>
+        <textarea class="form-control" id="shippingNote" rows="3" name="shippingNote"
+            [(ngModel)]="editedAddress.shippingNote" [disabled]="edit">
+        </textarea>
+    </div>
+
+    <div class="row mb-3 text-center">
+        <div>
+            <button class="btn btn-primary" *ngIf="edit" (click)="edit = false">EDIT ADDRESS</button>
+            <button class="btn btn-success mx-3" style="width: 80px;" *ngIf="!edit"
+                (click)="editAddress()">SAVE</button>
+            <button class="btn btn-secondary" style="width: 80px;" *ngIf="!edit" (click)="cancel()">CANCEL</button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+.imgi {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+}
+
+.imgi0 {
+  border-radius: 25%;
+  width: 25px;
+  height: 25px;
+}
+
+.imgi {
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+}
+
+.imgi0 {
+  border-radius: 25%;
+  width: 25px;
+  height: auto;
+}
+
+.footer {
+  background-color: lightgray;
+  /* padding-top: 15px; */
+  /* height: auto; */
+}
+
+.childi {
+  background-color: white;
+  height: auto;
+  margin: 10px;
+  padding: 15px;
+
+}
+
+ul {
+  list-style-type: none;
+}
+
+.first {
+
+  font-weight: bold;
+}
+
+.help {
+  color: blue;
+}
+
+.header {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.footer a {
+  text-decoration: none;
+  color: black;
+  font-weight: normal;
+}

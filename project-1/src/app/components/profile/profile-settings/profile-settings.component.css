@@ -1,0 +1,6 @@
+:host ::ng-deep .p-password input {
+  width: 15rem;
+}
+.p-password-panel {
+  width: 800px;
+}

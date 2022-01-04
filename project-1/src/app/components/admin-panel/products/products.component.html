@@ -1,0 +1,75 @@
+<div class="container mt-5 text-center" *ngIf="categories.length == 0">
+    <h3>NO CATEGORIES YET. <a href="/admin/new-category" style="text-decoration: none;">Add One!</a></h3>
+</div>
+
+<div class="container mt-5 text-center" *ngIf="categories.length > 0 && products.length == 0">
+    <h3>NO PRODUCTS YET. <a href="/admin/new-product" style="text-decoration: none;">Add One!</a></h3>
+</div>
+
+<h3 class="mt-5 mb-0 p-2 bg-secondary" *ngIf="products.length > 0">
+    There are in total {{products.length}} product(s).
+</h3>
+<table class="table table-dark table-hover mb-0" *ngIf="products.length > 0">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Image</th>
+            <th scope="col">Price</th>
+            <th scope="col">Category</th>
+            <th scope="col">Rating</th>
+            <th scope="col">Status</th>
+            <th scope="col"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let product of products; let i = index" (click)="showDetails(product)">
+            <td>{{product.name[0].toUpperCase() + product.name.substring(1)}}</td>
+            <td><img [src]="product.image" id="img"></td>
+            <td>
+                <div *ngIf="product.discount > 0" class="old-price">{{product.price | currency:'EGP '}}</div>
+                <div class="new-price">{{product.price - product.discount | currency:'EGP '}}</div>
+            </td>
+            <td>{{product.category.name[0].toUpperCase() + product.category.name.substring(1)}}</td>
+            <td>
+                <p-rating [(ngModel)]="product.rating" [readonly]="true" [cancel]="false"
+                    [iconOnStyle]="{color: '#FEBF00'}"></p-rating>
+            </td>
+            <td>
+                <p-badge *ngIf="product.countInStock == 0" value="OUTOFSTOCK" severity="danger"></p-badge>
+                <p-badge *ngIf="product.countInStock > 0 && product.countInStock <= 3" value="LOWSTOCK"
+                    severity="warning">
+                </p-badge>
+                <p-badge *ngIf="product.countInStock > 3" value="INSTOCK" severity="success"></p-badge>
+            </td>
+            <td>
+                <button pButton type="button" icon="pi pi-pencil" iconPos="left"
+                    class="p-button-info p-button-rounded mx-2" (click)="showEdit(product, $event)">
+                </button>
+                <button pButton type="button" icon="pi pi-trash" iconPos="left" class="p-button-danger p-button-rounded"
+                    (click)="showConfirm(product, $event)">
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<p-toast position="center" key="c" (onClose)="cancelDelete()" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div class="p-flex p-flex-column" style="flex: 1">
+            <div class="p-text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+            <div class="p-grid p-fluid">
+                <div class="p-col-6 mb-1">
+                    <button type="button" pButton (click)="delete()" label="Yes" class="p-button-success"></button>
+                </div>
+                <div class="p-col-6">
+                    <button type="button" pButton (click)="cancelDelete()" label="No"
+                        class="p-button-secondary"></button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>

@@ -1,0 +1,244 @@
+<p-sidebar [(visible)]="visibleSidebar1" [showCloseIcon]="true" [transitionOptions]="'250ms'" [baseZIndex]="10000">
+    <div class="row">
+        <h5 class="col-12 py-2 text-center linkcontainer"><a href="/home" class="sidebarlink">Home</a></h5>
+        <div class="col-12">
+            <hr />
+        </div>
+        <h5 class="col-12 py-2 text-center linkcontainer"><a href="/profile/settings" class="sidebarlink">My Accout</a>
+        </h5>
+        <div class="col-12">
+            <hr />
+        </div>
+        <h5 class="col-12 py-2 text-center linkcontainer"><a href="/profile/orders" class="sidebarlink">Orders</a>
+        </h5>
+        <div class="col-12">
+            <hr />
+        </div>
+        <h5 class="col-12 py-2 text-center linkcontainer"><span class="sidebarlink">Categotries</span></h5>
+        <!-- <div class="col-12 py-2 text-center collapsed linkcontainer" data-bs-toggle="collapse"
+            data-bs-target="#mobiles-collapse" aria-expanded="false">
+            <span class="p-2 slidebar-menu-header">Mobiles</span>
+            <span><i class="fas fa-angle-down"></i></span>
+            <span><i class="fas fa-angle-up"></i></span>
+            <div class="collapse" id="mobiles-collapse" style="background-color: #0f0f0f;">
+                <ul class="list-unstyled fw-normal">
+                    <li class="p-2 slidebar-item"><a href="#" class="slidebar-link">Overview</a></li>
+                    <li class="border-top"></li>
+                    <li class="p-2 slidebar-item"><a href="#" class="slidebar-link">Updates</a></li>
+                    <li class="border-top"></li>
+                    <li class="p-2 slidebar-item"><a href="#" class="slidebar-link">Reports</a></li>
+                </ul>
+            </div>
+        </div> -->
+
+        <h5 class="linkcontainer text-center p-2 m-0">
+            <a data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false"
+                aria-controls="collapseExample" class="sidebarlink">
+                Electronics
+            </a>
+        </h5>
+        <div class="collapse text-center" id="collapseExample">
+            <h6 class="linkcontainer p-2">
+                <a href="products/electronics/mobiles" style="text-decoration: none; color: black;">Mobiles</a>
+            </h6>
+            <h6 class="linkcontainer p-2">
+                PCs
+            </h6>
+            <h6 class="linkcontainer p-2">
+                Televisions
+            </h6>
+            <h6 class="linkcontainer p-2">
+                Headphones
+            </h6>
+        </div>
+        <div class="col-12 m-0 p-0">
+            <hr />
+        </div>
+
+        <h5 class="linkcontainer text-center p-2 m-0">
+            <a data-bs-toggle="collapse" href="#HealthBeauty" role="button" aria-expanded="false"
+                aria-controls="HealthBeauty" class="sidebarlink">
+                Health & Beauty
+            </a>
+        </h5>
+        <div class="collapse text-center" id="HealthBeauty">
+            <h6 class="linkcontainer p-2">
+                <a href="products/electronics/mobiles" style="text-decoration: none; color: black;">Mobiles</a>
+            </h6>
+            <h6 class="linkcontainer p-2">
+                PCs
+            </h6>
+            <h6 class="linkcontainer p-2">
+                Televisions
+            </h6>
+            <h6 class="linkcontainer p-2">
+                Headphones
+            </h6>
+        </div>
+        <div class="col-12 m-0 p-0">
+            <hr />
+        </div>
+
+        <h5 class="linkcontainer text-center p-2 m-0">
+            <a data-bs-toggle="collapse" href="#SuperMarket" role="button" aria-expanded="false"
+                aria-controls="SuperMarket" class="sidebarlink">
+                Super Market
+            </a>
+        </h5>
+        <div class="collapse text-center" id="SuperMarket">
+            <h6 class="linkcontainer p-2">
+                <a href="products/electronics/mobiles" style="text-decoration: none; color: black;">Mobiles</a>
+            </h6>
+            <h6 class="linkcontainer p-2">
+                PCs
+            </h6>
+            <h6 class="linkcontainer p-2">
+                Televisions
+            </h6>
+            <h6 class="linkcontainer p-2">
+                Headphones
+            </h6>
+        </div>
+        <div class="col-12 m-0 p-0">
+            <hr />
+        </div>
+
+        <h5 class="linkcontainer text-center p-2 m-0">
+            <a data-bs-toggle="collapse" href="#Sports" role="button" aria-expanded="false" aria-controls="Sports"
+                class="sidebarlink">
+                Sports
+            </a>
+        </h5>
+        <div class="collapse text-center" id="Sports">
+            <h6 class="linkcontainer p-2">
+                <a href="products/electronics/mobiles" style="text-decoration: none; color: black;">Mobiles</a>
+            </h6>
+            <h6 class="linkcontainer p-2">
+                PCs
+            </h6>
+            <h6 class="linkcontainer p-2">
+                Televisions
+            </h6>
+            <h6 class="linkcontainer p-2">
+                Headphones
+            </h6>
+        </div>
+        <div class="col-12 m-0 p-0">
+            <hr />
+        </div>
+    </div>
+</p-sidebar>
+
+<div class="container-fluid sticky-top py-2" id="first-nav" style="height: 85px;">
+    <div class="row align-items-center py-2">
+        <span class="col-1 col-md-1 px-md-3 px-lg-4 px-xl-5">
+            <!-- <fa-icon [icon]="faBars" (click)="visibleSidebar1 = true"></fa-icon> -->
+            <i class="pi pi-bars" style="font-size: 1rem" (click)="visibleSidebar1 = true"></i>
+        </span>
+        <div class="col-3 col-md-2 p-0" style="background-color: white;">
+            <a href=""><img src="../../../assets/images/header/logo.png" id="logo" alt="logo"
+                    style="width: 100%; height: 60px;" /></a>
+        </div>
+        <div class="d-none d-md-block col-md-5 px-lg-5">
+            <form class="input-group">
+                <input class="form-control" type="search" placeholder="What are you looking for ?" aria-label="Search">
+                <button class="btn btn-primary" type="button">
+                    <fa-icon [icon]="faSearch"></fa-icon>
+                </button>
+            </form>
+        </div>
+        <div class=" col-3 offset-md-0 col-md-2 px-lg-5 text-center">
+            <div class="dropdown">
+                <span class="dropdown-toggle main-nav-link" type="button" id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown" aria-expanded="false" style="font-size: 1.2rem;">
+                    {{nameLabel}}
+                </span>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li *ngIf="!userLoged">
+                        <a class="dropdown-item" href="/login">
+                            <button class="btn btn-primary" style="width: 100%;">Log In</button>
+                        </a>
+                        <p class="text-center">Don't have account?<br />
+                            <a href="/register" class="main-nav-link">Sign Up</a>
+                        </p>
+                    </li>
+                    <li *ngIf="!userLoged">
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <a class="dropdown-item main-nav-link" #orders [routerLink]="['/profile/orders']"
+                            [state]="user">My Orders</a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><button class="dropdown-item main-nav-link" #addresses (click)="navToProfile(addresses)"
+                            value="/profile/address">My Address</button>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><button class="dropdown-item main-nav-link" #wishLists (click)="navToProfile(wishLists)"
+                            value="/profile/wish-list">Wish List</button></li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li><button class="dropdown-item main-nav-link" #settings (click)="navToProfile(settings)"
+                            value="/profile/settings">Account
+                            Settings</button></li>
+                    <li *ngIf="userLoged">
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li *ngIf="userLoged">
+                        <button class="dropdown-item main-nav-link" (click)="logout()">Logout</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-2 d-md-none align-items-end" id="searchicondev">
+            <div class="dropdown text-end">
+                <button class="btn" id="dropdownMenuLink" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <!-- <fa-icon [icon]="faSearch" class="fa-2x" style="color: #0d6efd;"></fa-icon> -->
+                    <i class="pi pi-search" style="font-size: 1.6rem; color: #0d6efd; font-weight: bold;"></i>
+                </button>
+                <input class="form-control dropdown-menu" aria-labelledby="dropdownMenuLink" type="search"
+                    placeholder="Search" aria-label="Search">
+            </div>
+        </div>
+
+        <div class="col-2 col-md-2 text-center" *ngIf="count > 0 && router.url != '/shopping-cart'">
+            <div class="dropdown">
+                <span class="main-nav-link" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+                    aria-expanded="false" style="font-size: 1.2rem;">
+                    <p-avatar icon="pi pi-shopping-cart" pBadge [value]="count + '' " severity="danger"
+                        styleClass="p-mr-2" size="large">
+                    </p-avatar>
+                </span>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li>
+                        <a class="dropdown-item" href="/shopping-cart">
+                            <button id="cart-link" class="btn" style="width: 100%;">VIEW CART</button>
+                        </a>
+                    </li>
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+                    <li>
+                        <a class="dropdown-item" href="/checkout">
+                            <button id="checkout-link" class="btn" style="width: 100%;">CHECKOUT</button>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-2 col-md-2 text-center" *ngIf="items.length == 0 && router.url != '/shopping-cart'">
+            <a href="/shopping-cart" style="text-decoration: none;">
+                <p-avatar icon="pi pi-shopping-cart" pBadge [value]="items.length + '' " severity="danger"
+                    styleClass="p-mr-2" size="large">
+                </p-avatar>
+            </a>
+        </div>
+
+    </div>
+</div>

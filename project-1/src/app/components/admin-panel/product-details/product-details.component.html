@@ -1,0 +1,115 @@
+<div>
+    <div class="row">
+        <div class="col-2">
+            <h5>Description:</h5>
+        </div>
+        <div class="col-10" style="word-wrap: break-word;">
+            <h5>{{product.description}}</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <hr />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2">
+            <h5>Rich Description:</h5>
+        </div>
+        <div class="col-10">
+            <h5>{{product.richDescription}}</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <hr />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2">
+            <h5>Discount:</h5>
+        </div>
+        <div class="col-10">
+            <h5>{{product.discount | currency:'EGP '}}</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <hr />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2">
+            <h5>Brand:</h5>
+        </div>
+        <div class="col-10">
+            <h5>{{product.brand}}</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <hr />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2">
+            <h5>Count in Stock:</h5>
+        </div>
+        <div class="col-10">
+            <h5>{{product.countInStock}}</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <hr />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2">
+            <h5>Reviews Number:</h5>
+        </div>
+        <div class="col-10">
+            <h5>{{product.numReviews}}</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <hr />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2">
+            <h5>Status:</h5>
+        </div>
+        <div class="col-10">
+            <h5>{{product.isFeatured? 'NEW' : 'USED'}}</h5>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12">
+            <hr />
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-2">
+            <h5>Creation Date:</h5>
+        </div>
+        <div class="col-10">
+            <h5>{{product.dateCreated | date:'dd-MM-yyyy, HH:MM'}}</h5>
+        </div>
+    </div>
+</div>

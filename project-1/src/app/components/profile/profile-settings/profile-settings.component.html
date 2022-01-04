@@ -1,0 +1,86 @@
+<div class="p-3">
+
+    <h3 class="mb-3">Account Information: </h3>
+
+    <div class="row g-3">
+        <div class="form-floating my-3 col">
+            <input type="text" class="form-control" id="firstname" placeholder="First Name" name="firstname"
+                [(ngModel)]="editedUser.firstName" [disabled]="edit">
+            <label for="firstname">First Name</label>
+        </div>
+
+        <div class="form-floating mb-3 col">
+            <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName"
+                [(ngModel)]="editedUser.lastName" [disabled]="edit">
+            <label for="lastName">Last Name</label>
+        </div>
+    </div>
+
+    <div class="row g-3">
+        <div class="form-floating mb-3 col">
+            <input type="text" class="form-control" id="email" placeholder="E-Mail" name="email"
+                [(ngModel)]="editedUser.email" [disabled]="edit">
+            <label for="email">E-Mail</label>
+        </div>
+    </div>
+
+    <div class="col mb-3">
+        <div>Password</div>
+        <p-password [disabled]="edit" [(ngModel)]="editedUser.passwordHash" placeholder="Password" [feedback]="false"
+            [toggleMask]="true" name="password">
+        </p-password>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="phone" placeholder="Phone" name="phone"
+            [(ngModel)]="editedUser.phone" [disabled]="edit">
+        <label for="password">Phone</label>
+    </div>
+
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="gender">Gender</label>
+        <select class="form-select" id="gender" name="gender" [(ngModel)]="editedUser.gender" [disabled]="edit">
+            <option [value]="editedUser.gender">
+                {{editedUser.gender? editedUser.gender[0].toUpperCase() + editedUser.gender.substring(1) : editedUser.gender}}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="nationality" placeholder="Nationality" name="nationality"
+            [(ngModel)]="editedUser.nationality" [disabled]="edit">
+        <label for="nationality">Nationality</label>
+    </div>
+
+    <div class="row mb-3 text-center">
+        <div>
+            <button class="btn btn-primary mx-3 p-2" style="width: 120px;" *ngIf="edit" (click)="edit = false">EDIT
+                INFORMATION</button>
+            <button class="btn btn-danger mx-3 p-2" style="width: 120px;" *ngIf="edit" (click)="showConfirm()">DELETE
+                ACCOUNT</button>
+            <button class="btn btn-success mx-3" style="width: 80px;" *ngIf="!edit"
+                (click)="editAddress()">SAVE</button>
+            <button class="btn btn-secondary" style="width: 80px;" *ngIf="!edit" (click)="cancel()">CANCEL</button>
+        </div>
+    </div>
+</div>
+
+<p-toast position="center" key="c" (onClose)="close()" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div class="p-flex p-flex-column" style="flex: 1">
+            <div class="p-text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+            <div class="p-grid p-fluid">
+                <div class="p-col-6 mb-1">
+                    <button type="button" pButton (click)="delete()" label="Yes" class="p-button-danger"></button>
+                </div>
+                <div class="p-col-6">
+                    <button type="button" pButton (click)="close()" label="No" class="p-button-secondary"></button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>

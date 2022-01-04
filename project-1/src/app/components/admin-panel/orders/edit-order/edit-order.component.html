@@ -1,0 +1,129 @@
+<div class="row">
+    <div class="col-6">
+        Order placed on: <b>{{order.dateOrdered | date: 'dd MMM yyyy'}}</b>
+    </div>
+    <div class="col-6">
+        Recipient: {{order.firstName + ' ' + order.lastName}}
+    </div>
+    <div class="col-6">
+        Order ID: {{order._id}}
+    </div>
+    <div class="col-6">
+        Payment Method: {{order.paymentMethod}}
+    </div>
+    <div class="col-6" [ngSwitch]="order.status">
+        Order Status:
+        <p-badge [value]="order.status" severity="warning" *ngSwitchCase="'pending'"></p-badge>
+        <p-badge [value]="order.status" *ngSwitchCase="'out for delivery'">
+        </p-badge>
+        <p-badge [value]="order.status" severity="success" *ngSwitchCase="'delivered'"></p-badge>
+        <p-badge [value]="order.status" severity="danger" *ngSwitchCase="'canceled'"></p-badge>
+        <p-badge [value]="order.status" severity="info" *ngSwitchDefault></p-badge>
+    </div>
+    <div class="col-6">
+        Total: {{order.totalPrice}} EGP
+    </div>
+    <div class="col-12">
+        <hr />
+    </div>
+    <h5 class="mb-2">Order Product(s):</h5>
+    <div class="row" *ngFor="let item of order.orderItems; let i = index;">
+        <div class="col-2 text-center">
+            <img [src]="item.product.image" style="width: 65px; height: 70px;">
+        </div>
+        <div class="col-10">
+            <div class="col-12">
+                {{item.product.name + ', '}}
+            </div>
+            <div class="col-12">
+                {{item.product.description}}
+            </div>
+            <div class="col-12">
+                Color: {{item.product.color[0].toUpperCase() + item.product.color.substring(1)}}
+            </div>
+            <div class="col-12">
+                Price: {{item.product.price}} EGP
+            </div>
+            <div class="col-12">
+                Quantity: {{item.quantity}}
+            </div>
+            <div class="col-12">
+                Condition: {{item.product.isFeatured ? 'New' : 'USED'}}
+            </div>
+        </div>
+        <div [class]="i == (order.orderItems.length - 1) ? 'col-12' : 'offset-1 col-10'">
+            <hr />
+        </div>
+    </div>
+    <div class="row">
+        <h5>Order Timeline:</h5>
+        <p-timeline [value]="events">
+            <ng-template pTemplate="content" let-event>
+                <b><small class="p-text-secondary">&#123;&#123;event.date&#125;&#125;</small></b>
+            </ng-template>
+            <ng-template pTemplate="opposite" let-event>
+                &#123;&#123;event.status&#125;&#125;
+            </ng-template>
+        </p-timeline>
+    </div>
+    <div class="row text-center mt-3" [ngSwitch]="order.status">
+        <div *ngSwitchCase="'pending'">
+            <button pButton type="button" label="OUT FOR DELIVERY" class="p-button" icon="pi pi-envelope" iconPos="left"
+                (click)="changeStatus(order.status)">
+            </button>
+        </div>
+        <div *ngSwitchCase="'out for delivery'">
+            <button pButton type="button" label="DELIVERED" class="p-button-success mx-3" icon="pi pi-check-circle"
+                iconPos="left" (click)="changeStatus('delivered')">
+            </button>
+            <button pButton type="button" label="RETURNED" class="p-button-secondary" icon="pi pi-replay" iconPos="left"
+                (click)="changeStatus('returned')">
+            </button>
+        </div>
+        <div *ngSwitchDefault>
+            <button pButton type="button" label="DELETE" class="p-button-danger" icon="pi pi-trash" iconPos="left"
+                (click)="showConfirm()">
+            </button>
+        </div>
+    </div>
+</div>
+
+<p-toast position="center" key="c" (onClose)="close()" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div class="p-flex p-flex-column" style="flex: 1">
+            <div class="p-text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+            <div class="p-grid p-fluid">
+                <div class="p-col-6 mb-1">
+                    <button type="button" pButton (click)="DeletOrder()" label="Yes" class="p-button-danger"></button>
+                </div>
+                <div class="p-col-6">
+                    <button type="button" pButton (click)="close()" label="No" class="p-button-secondary"></button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>
+
+<p-toast position="center" key="tc" (onClose)="close()" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div class="p-flex p-flex-column" style="flex: 1">
+            <div class="p-text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+            <div class="p-grid p-fluid">
+                <div class="p-col-6 mb-1">
+                    <button type="button" pButton (click)="backend()" label="Yes" class="p-button-success"></button>
+                </div>
+                <div class="p-col-6">
+                    <button type="button" pButton (click)="close()" label="No" class="p-button-secondary"></button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>

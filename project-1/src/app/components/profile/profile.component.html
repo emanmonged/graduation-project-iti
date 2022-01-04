@@ -1,0 +1,87 @@
+<app-navbar></app-navbar>
+
+<app-second-navbar></app-second-navbar>
+
+<div class="row mt-3 container">
+    <div class="col ml-3">
+        <fa-icon [icon]="faUser" class="fa fa-2x mr-2"></fa-icon>
+        <p class="parau">{{user.firstName + ' ' + user.lastName}}<br><span class="spanu">{{user.email}}</span></p>
+    </div>
+    <div class="col text" *ngIf="router.url == '/profile/orders'">
+        Track Your Orders, There are&nbsp;<span>{{orders.length > 0 ? orders.length : 'no'}} orders.</span>
+    </div>
+    <!-- <div class="container col">
+        <div class="row">
+            <div class="col">
+                <button class="btn filter" data-toggle="dropdown"> PAST 6 MONTHS<fa-icon [icon]="faCaretDown"
+                        class="fa ml-1">
+                    </fa-icon></button>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-header">Last Month</li>
+                    <li class="dropdown-item">Past 3 Months</li>
+                    <li class="dropdown-item">2021</li>
+                    <li class="dropdown-item">2020</li>
+                    <li class="dropdown-divider">2019</li>
+                    <li class="dropdown-header">2018</li>
+                    <li class="dropdown-item">2017</li>
+                    <li class="dropdown-item">2016</li>
+                    <li class="dropdown-item">Older Than 2016</li>
+                </ul>
+            </div>
+            <div class="col">
+                <button class="btn filter" data-toggle="dropdown"> ALL<fa-icon [icon]="faCaretDown" class="fa ml-1">
+                    </fa-icon>
+                </button>
+                <ul class="dropdown-menu">
+                    <li class="dropdown-header">Under Processing</li>
+                    <li class="dropdown-item">Cancelled</li>
+                    <li class="dropdown-item">Returned</li>
+                </ul>
+            </div>
+        </div>
+    </div> -->
+</div>
+
+<div class="container-fluid row mb-5">
+
+    <div class="col-2">
+        <table class="table table-bordered text-center">
+            <tbody>
+                <tr>
+                    <td>
+                        <fa-icon [icon]="faBook" class="fa fa-2x"></fa-icon>
+                    </td>
+                    <td> <a class="profile-link" [routerLink]="['orders']" [state]="user">My Orders</a> </td>
+                </tr>
+                <tr>
+                    <td>
+                        <fa-icon [icon]="faMap" class="fa fa-2x"></fa-icon>
+                    </td>
+                    <td> <a class="profile-link" [routerLink]="['address']" [state]="user"> Shipping Address</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <fa-icon [icon]="faHeart" class="fa fa-2x"></fa-icon>
+                    </td>
+                    <td> <a class="profile-link" routerLink="./wish-list">Wish List</a></td>
+                </tr>
+                <tr>
+                    <td>
+                        <fa-icon [icon]="faCog" class="fa fa-2x"></fa-icon>
+                    </td>
+                    <td> <a class="profile-link" routerLink="./settings">Acount Settings</a></td>
+                </tr>
+            <tbody>
+        </table>
+    </div>
+
+    <div class="ml-4 col-9 p-0 h-25" *ngIf="orders.length == 0 && router.url == '/profile/orders'">
+        <router-outlet></router-outlet>
+    </div>
+
+    <div class="ml-4 col-9 section p-0 h-25" *ngIf="orders.length > 0 || router.url != '/profile/orders'">
+        <router-outlet></router-outlet>
+    </div>
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,85 @@
+<app-navbar></app-navbar>
+<app-second-navbar></app-second-navbar>
+<div>
+    <div class="container text-center mt-3 mb-4" *ngIf="router.url == '/products/electronics'">
+        <h3>SHOP BY CATEGORY</h3>
+    </div>
+    <div class="row mx-auto justify-content-evenly" *ngIf="router.url == '/products/electronics'">
+        <div class="col-1 text-center px-2 py-4 cate">
+            <a href="/products/electronics/mobiles" class="catelink">
+                <img src="../../../../assets/images/products/electronics/mobile.jpg" class="img">
+                <h5 class="mt-3">Mobiles</h5>
+            </a>
+        </div>
+        <div class="col-1 text-center px-2 py-4 cate">
+            <a href="/products/electronics/laptops" class="catelink">
+                <img src="../../../../assets/images/products/electronics/laptop.jpg" class="img">
+                <h5 class="mt-3">Laptops</h5>
+            </a>
+        </div>
+        <div class="col-1 text-center px-2 py-4 cate">
+            <a href="/products/electronics/televisions" class="catelink">
+                <img src="../../../../assets/images/products/electronics/tv.jpg" class="img">
+                <h5 class="mt-3">Televisons</h5>
+            </a>
+        </div>
+        <div class="col-1 text-center px-2 py-4 cate">
+            <a href="/home" class="catelink">
+                <img src="../../../../assets/images/products/electronics/camera.jpg" class="img">
+                <h5 class="mt-3">Cameras</h5>
+            </a>
+        </div>
+        <div class="col-1 text-center px-2 py-4 cate">
+            <a href="/home" class="catelink">
+                <img src="../../../../assets/images/products/electronics/videogame.jpg" class="img">
+                <h5 class="mt-3">Videogames</h5>
+            </a>
+        </div>
+        <div class="col-1 text-center px-2 py-4 cate">
+            <a href="/products/electronics/headphones" class="catelink">
+                <img src="../../../../assets/images/products/electronics/headphone.jpg" class="img">
+                <h5 class="mt-3">Headphones</h5>
+            </a>
+        </div>
+    </div>
+    <div class="row mx-auto my-5 justify-content-evenly" *ngIf="router.url == '/products/electronics'">
+        <div class="col-1 text-center px-2 py-4 cate">
+            <a href="/home" class="catelink">
+                <img src="../../../../assets/images/products/electronics/smartwatch.jpg" class="img">
+                <h5 class="mt-3">Smart Wearables</h5>
+            </a>
+        </div>
+        <div class="col-1 text-center px-2 py-4 cate">
+            <a href="/home" class="catelink">
+                <img src="../../../../assets/images/products/electronics/pcaccessory.jpg" class="img">
+                <h5 class="mt-3">PC Accessories</h5>
+            </a>
+        </div>
+        <div class="col-1 text-center px-2 py-4 cate">
+            <a href="/home" class="catelink">
+                <img src="../../../../assets/images/products/electronics/musical.jpg" class="img">
+                <h5 class="mt-3">Musical Instrument</h5>
+            </a>
+        </div>
+        <div class="col-1 text-center px-2 py-4 cate">
+            <a href="/home" class="catelink">
+                <img src="../../../../assets/images/products/electronics/printer.jpg" class="img">
+                <h5 class="mt-3">Printers & Ink</h5>
+            </a>
+        </div>
+        <div class="col-1 text-center px-2 py-4 cate">
+            <a href="/home" class="catelink">
+                <img src="../../../../assets/images/products/electronics/speakers.jpg" class="img">
+                <h5 class="mt-3">Speakers</h5>
+            </a>
+        </div>
+        <div class="col-1 text-center px-2 py-4 cate">
+            <a href="/home" class="catelink">
+                <img src="../../../../assets/images/products/electronics/tablets.jpg" class="img">
+                <h5 class="mt-3">Tablets</h5>
+            </a>
+        </div>
+    </div>
+    <router-outlet></router-outlet>
+</div>
+<app-footer></app-footer>

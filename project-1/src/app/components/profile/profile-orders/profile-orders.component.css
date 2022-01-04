@@ -1,0 +1,69 @@
+/* td {
+    vertical-align: middle;
+} */
+
+.p-scrollpanel p {
+  padding: 0.5rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.p-scrollpanel.custombar1 .p-scrollpanel-wrapper {
+  border-right: 9px solid var(--layer-1);
+}
+
+.p-scrollpanel.custombar1 .p-scrollpanel-bar {
+  background-color: var(--primary-color);
+  opacity: 1;
+  transition: background-color 0.2s;
+}
+
+.p-scrollpanel.custombar1 .p-scrollpanel-bar:hover {
+  background-color: #007ad9;
+}
+
+.p-scrollpanel.custombar2 .p-scrollpanel-wrapper {
+  border-right: 9px solid var(--layer-1);
+  border-bottom: 9px solid var(--layer-1);
+}
+
+.p-scrollpanel.custombar2 .p-scrollpanel-bar {
+  background-color: var(--layer-2);
+  border-radius: 0;
+  opacity: 1;
+  transition: background-color 0.2s;
+}
+
+.custom-marker {
+  display: flex;
+  width: 2rem;
+  height: 2rem;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  border-radius: 50%;
+  z-index: 1;
+}
+
+::ng-deep .p-timeline-event-content,
+::ng-deep .p-timeline-event-opposite {
+  line-height: 1;
+}
+
+@media screen and (max-width: 960px) {
+  ::ng-deep .customized-timeline .p-timeline-event:nth-child(even) {
+    flex-direction: row !important;
+  }
+
+  ::ng-deep .customized-timeline .p-timeline-event:nth-child(even) .p-timeline-event-content {
+    text-align: left !important;
+  }
+
+  ::ng-deep .customized-timeline .p-timeline-event-opposite {
+    flex: 0;
+  }
+
+  ::ng-deep .customized-timeline .p-card {
+    margin-top: 1rem;
+  }
+}

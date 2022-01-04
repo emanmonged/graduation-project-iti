@@ -1,0 +1,41 @@
+<div class="container text-center mt-3 mb-4">
+    <h3>Headphones</h3>
+</div>
+
+<div class="container-fluid">
+    <div class="container my-4">
+        <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-3 mb-5" *ngFor="let headphone of headphones" (click)="showProduct(headphone)"
+                            style="cursor: pointer; height: 400px;">
+                            <div class="card mb-2">
+                                <div class="text-center">
+                                    <img class="card-img-top p-2" [src]="headphone.image" alt="Card image cap">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">{{headphone.name}}</h5>
+                                    <p class="card-text mt-2">
+                                        {{headphone.description}}
+                                    </p>
+                                    <div class="text-center">
+                                        <p-rating class="p-my-1" [(ngModel)]="headphone.rating" [cancel]="false"
+                                            [iconOnStyle]="{color: '#FEBF00'}"></p-rating>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="old-price my-2">
+                                            {{ headphone.discount > 0 ? (headphone.price + headphone.discount |
+                                            currency:' EGP '):''}}
+                                        </div>
+                                        <div class="new-price"> {{ headphone.price | currency:'EGP '}} </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,103 @@
+#main {
+  background-color: #FAFAFA;
+}
+
+/*  Start For any card */
+.card {
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, .08), 0 0 6px rgba(0, 0, 0, .05);
+  transition: .3s transform cubic-bezier(.155, 1.105, .295, 1.12), .3s box-shadow, .3s -webkit-transform cubic-bezier(.155, 1.105, .295, 1.12);
+  /* padding: 14px 80px 18px 36px; */
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .12), 0 4px 8px rgba(0, 0, 0, .06);
+}
+
+/* End For any card  */
+
+/* start section1 */
+.card .card-header ul li a {
+  color: black;
+  font-size: large;
+  font-weight: bold;
+}
+
+/* end section1 */
+
+/* this for all cards that using as a link*/
+a.custom-card,
+a.custom-card:hover {
+  color: inherit;
+}
+
+/* start section2 */
+.container-fluid {
+  padding: 20px;
+}
+
+.container-fluid .custom-card-header ul li a {
+  color: rgb(0, 0, 0);
+  font-size: 1.7rem;
+}
+
+/* end section2 */
+
+/* this media query for all section in home page in small screen */
+@media (max-width:560px) {
+  .container-fluid .row .col {
+    margin-left: 100px;
+    padding: 10px;
+    width: auto;
+  }
+}
+
+.body-carousel {
+  text-decoration: none;
+  color: black;
+}
+
+.product-item .product-item-content {
+  /* border: 1px solid black; */
+  border-radius: 3px;
+  box-shadow: 1px 1px 10px #8f8e8e;
+  margin: 1rem;
+  text-align: center;
+  padding: 2rem 0;
+  height: 25rem;
+  background-color: white;
+}
+
+.product-item .product-image {
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.old-price {
+  color: #AEAEAE;
+  text-decoration: line-through;
+}
+
+.new-price {
+  color: #006FCC;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+:host ::ng-deep .custom-scrolltop {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 4px;
+  background-color: var(--primary-color);
+}
+
+:host ::ng-deep .custom-scrolltop:hover {
+  background-color: var(--primary-color);
+}
+
+:host ::ng-deep .custom-scrolltop .p-scrolltop-icon {
+  font-size: 1rem;
+  color: var(--primary-color-text);
+}

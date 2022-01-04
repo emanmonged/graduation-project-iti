@@ -1,0 +1,65 @@
+@import '../../../assets/bootstrap-v4/css/bootstrap.css';
+
+body {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+  background-repeat: no-repeat;
+  background-image: 100%;
+}
+
+.mainwraper {
+  margin-top: 150px;
+}
+
+.main {
+
+  width: 50%;
+  background-color: white;
+  margin: auto;
+
+
+}
+
+input[type="submit"] {
+  background-color: royalblue;
+  box-sizing: border-box;
+  color: white;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  white-space: normal;
+
+}
+
+input[type="button"] {
+  background-color: rgba(2, 160, 28, 0.87);
+  box-sizing: border-box;
+  color: white;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  white-space: normal;
+
+}
+
+.head {
+  color: royalblue;
+}
+
+span {
+  color: red;
+  font-weight: bold;
+
+}
+
+p {
+  text-align: center;
+}
+
+span>a {
+  font-family: Arial;
+  font-size: 16px;
+  text-align: center;
+  margin-left: 20px;
+}

@@ -1,0 +1,120 @@
+@import '../../../assets/bootstrap-v4/css/bootstrap.css';
+
+body {
+  padding: 0%;
+  margin: 0%;
+  box-sizing: border-box;
+  background-image: 100%;
+}
+
+.mainwraper {
+  margin-top: 60px;
+}
+
+.main {
+
+  width: 50%;
+  background-color: white;
+  margin: auto;
+}
+
+input[type="submit"] {
+  background-color: royalblue;
+  box-sizing: border-box;
+  color: white;
+  display: inline-block;
+  vertical-align: top;
+  text-align: center;
+  white-space: normal;
+}
+
+.head {
+  color: royalblue;
+}
+
+.toggle-password {
+  padding-top: 2px;
+  border-radius: 5px;
+  width: 34px;
+  margin-top: -30px;
+  position: absolute;
+  margin-left: 300px;
+  cursor: pointer;
+}
+
+.toggle-password:hover {
+  background: #fff;
+}
+
+.toggle-password:active {
+  background: #fff;
+}
+
+.toggle-password:focus {
+  outline: none;
+}
+
+.toggle-password>span {
+  display: block;
+  border-radius: 2px;
+  height: 5px;
+  width: 34px;
+  background: #fff;
+  margin: auto;
+  margin-bottom: 3px;
+}
+
+/* .fa-fw {
+    float: right;
+    width: 57px;
+    padding-top: 2px;
+    border-radius: 5px;
+    margin-top: 20px;
+    cursor: pointer;
+    } */
+.forget {
+  font-family: Arial;
+  color: red;
+  text-decoration: underline;
+
+}
+
+.forget:hover {
+  color: red;
+}
+
+span {
+  color: red;
+  font-weight: bold;
+
+}
+
+#account {
+  font-family: Arial;
+  font-size: 16px;
+  text-align: center;
+  margin-left: 20px;
+}
+
+input.ng-invalid.ng-touched {
+  border: 2px solid red;
+}
+
+input.ng-valid.ng-touched {
+  border: 2px solid green;
+
+}
+
+.ng-valid[required],
+.ng-valid.required {
+  border-left: 5px solid #42A948;
+  /* green */
+}
+
+
+.alert div {
+  background-color: #fed3d3;
+  color: #820000;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}

@@ -1,0 +1,73 @@
+<div class="footer">
+    <div class="container">
+        <div class="row ">
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                <ul>
+                    <li class="first">PIPULAR SEARCHES</li>
+                    <li>Cameras</li>
+                    <li>Electronics</li>
+                    <li>TV's</li>
+                    <li>Suprmarket</li>
+                    <li>Appliances</li>
+                    <li>Watches</li>
+                    <li>Mobile Phones</li>
+                    <li>Fashion </li>
+                    <li>Printers And Accessories</li>
+                    <li>Laptop</li>
+                </ul>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                <ul>
+                    <li class="first">MY ACCOUNT</li>
+                    <li *ngIf="!userLoged"><a href="/login">Login/Register</a></li>
+                    <li *ngIf="userLoged"><span style="cursor: pointer;" (click)="logout()">Logout</span></li>
+                    <li>My Shopping Cart</li>
+                    <li><a href="/profile/orders">My Orders</a></li>
+                    <li><a href="/profile/addresses">My Addresses</a></li>
+                    <li><a href="/profile/wish-lists">Wish Lists</a></li>
+                    <li><a href="/profile/settings">Account Settings</a></li>
+                    <li>Acount Summary</li>
+                </ul>
+                <ul>
+                    <li class="first">INTELLECTUAL PROPERTY</li>
+                    <li>Brand and Copyright Owners </li>
+                    <li>Marketplace Sellers</li>
+                </ul>
+            </div>
+            <div class="col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3">
+                <ul>
+                    <li class="first">SELLING ON SOUQ.COM</li>
+                    <li>Sell On Souq.com</li>
+                    <li>Selling Policies </li>
+                    <li>Seller Terms and Conditions </li>
+                    <li>Fulfilled by Souq</li>
+                    <li>FAQS </li>
+                </ul>
+                <ul>
+                    <li class="first">BUYING ON SOUQ.COM</li>
+                    <li>How to Buy</li>
+                    <li>Return Policy</li>
+                    <li>Advertise with us </li>
+                    <li>Help</li>
+                </ul>
+            </div>
+            <div class=" col-6 col-sm-6 col-md-3 col-lg-3 col-xl-3 ">
+                <div class="childi">
+                    <img src="../../../assets/images/footer/information.png" class="imgi">
+                    <h4 class="help" style="display:inline-block">HELP CENTER</h4>
+                    <p class="para"> Have a question or an issue? We are here to help</p>
+                </div>
+                <h5 class="header">FOLLOW US</h5>
+                <img src="../../../assets/images/footer/facebook.png" class="imgi mx-1">
+                <img src="../../../assets/images/footer/twitter.png" class="imgi mx-1">
+                <img src="../../../assets/images/footer/youtube.png" class="imgi mx-1">
+                <img src="../../../assets/images/footer/google-plus.png" class="imgi mx-1">
+                <img src="../../../assets/images/footer/instagram.png" class="imgi0 mx-1">
+                <img src="../../../assets/images/footer/pinterest.png" class="imgi mx-1">
+                <h5 class="header">DOWENLOAD OUR APPS</h5>
+                <img src="../../../assets/images/footer/google-play.png" class="imgi mx-1">
+                <img src="../../../assets/images/footer/apple-logo.png" class="imgi mx-1">
+            </div>
+        </div>
+    </div>
+</div>

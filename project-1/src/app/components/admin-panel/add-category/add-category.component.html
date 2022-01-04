@@ -1,0 +1,22 @@
+<p-blockUI [blocked]="blockedDocument"></p-blockUI>
+
+<div class="container mt-5 text-center">
+
+    <h3>Category Details</h3>
+
+    <div class="section p-5">
+
+        <input type="text" class="form-control my-2" placeholder="Name" name="name" [(ngModel)]="category.name">
+
+        <input type="text" class="form-control my-2" placeholder="Icon" name="icon" [(ngModel)]="category.icon">
+
+        <input type="text" class="form-control my-2" placeholder="Color" name="color" [(ngModel)]="category.color">
+
+        <div class="mt-4">
+            <button class="btn btn-success px-5 py-2" (click)="add()">ADD</button>
+        </div>
+
+    </div>
+</div>
+
+<p-toast position="top-center" key="tc" [baseZIndex]="5000"></p-toast>

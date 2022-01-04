@@ -1,0 +1,87 @@
+#first-nav {
+  background-color: white;
+}
+
+.menu:hover .hidden {
+  display: flex;
+}
+
+.main-nav-link {
+  color: #0d6efd;
+}
+
+#cart-link {
+  background-color: #D8D8D8;
+  color: #777777;
+}
+
+#checkout-link {
+  background-color: #8CBF3F;
+  color: #FFFFFF;
+}
+
+/*******************************************************************************************/
+
+.sidebarlink {
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  font-size: 1.2rem;
+}
+
+.linkcontainer:hover {
+  background-color: grey;
+}
+
+/*******************************************************************************************/
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.slidebar-item,
+.slidebar-menu,
+.categories,
+.slidebar-link {
+  color: white;
+}
+
+.slidebar-item:hover {
+  background-color: grey;
+}
+
+.categories {
+  background-color: #585757;
+}
+
+.categories:hover {
+  background-color: #333333;
+}
+
+.slidebar-link {
+  text-decoration: none;
+}
+
+.slidebar-link:hover {
+  color: white;
+}
+
+.slidebar-menu-header {
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.menu:hover .hidden {
+  display: flex;
+}
+
+.main-nav-link {
+  color: #0d6efd;
+}

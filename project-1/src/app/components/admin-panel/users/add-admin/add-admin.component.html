@@ -1,0 +1,37 @@
+<div class="container">
+    <div class="text-center">
+        <h3>New Admin Details</h3>
+    </div>
+
+    <div class="section">
+
+        <div class="form-floating my-3">
+            <input type="text" class="form-control" id="firstName" placeholder="First Name" name="firstName"
+                [(ngModel)]="admin.firstName">
+            <label for="firstName">First Name</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="lastName" placeholder="Last Name" name="lastName"
+                [(ngModel)]="admin.lastName">
+            <label for="lastName">Last Name</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="email" placeholder="User" name="email"
+                [(ngModel)]="admin.email">
+            <label for="email">User</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="price" placeholder="Password" name="password"
+                [(ngModel)]="admin.password">
+            <label for="password">Password</label>
+        </div>
+
+        <div class="text-center mb-2">
+            <button class="btn btn-success mx-2 px-5 py-2" style="width: 150px;" (click)="add()">ADD</button>
+            <button class="btn btn-secondary px-5 py-2" style="width: 150px;" (click)="cancel()">CANCEL</button>
+        </div>
+    </div>
+</div>

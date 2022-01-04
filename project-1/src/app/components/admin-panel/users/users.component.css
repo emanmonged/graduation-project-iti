@@ -1,0 +1,21 @@
+#img {
+  width: 100px;
+  height: 80px;
+}
+
+table {
+  font-size: 1.2rem;
+}
+
+td {
+  vertical-align: middle;
+}
+
+.old-price {
+  color: #AEAEAE;
+  text-decoration: line-through;
+}
+
+.new-price {
+  color: #006FCC;
+}

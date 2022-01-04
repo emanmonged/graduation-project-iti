@@ -1,0 +1,21 @@
+.cate {
+    border-radius: 50%;
+    width: 180px;
+    height: 180px;
+    opacity: 65%;
+    transition: 0.5s;
+}
+
+.cate:hover{
+    opacity: 100%;
+}
+
+.catelink {
+    text-decoration: none;
+    color: black;
+}
+
+.img {
+    width: 100px;
+    height: 100px;
+}

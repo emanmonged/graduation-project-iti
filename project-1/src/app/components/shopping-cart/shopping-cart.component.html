@@ -1,0 +1,155 @@
+<app-navbar></app-navbar>
+
+<app-second-navbar></app-second-navbar>
+
+<div class="container my-4 my-md-5 py-md-5" *ngIf="cartItems.length == 0">
+
+    <h4>Shopping Cart(0)</h4>
+
+    <div class="container" id="internalwrapper">
+        <div class="p-3">Shopping cart is currently empty</div>
+        <div class="p-3">Add items to your cart and view them here before you checkout. <a href="/home"
+                style="text-decoration: none;">Continue shopping!</a></div>
+    </div>
+
+</div>
+
+<div id="mainwrapper" class="container-fluid row py-4 mx-0 justify-content-center" *ngIf="cartItems.length > 0">
+
+    <div class="col-lg-7">
+
+        <h4>Shopping Cart({{count}})</h4>
+
+        <div class="row section p-3 mb-4" *ngFor="let item of cartItems; let i = index;">
+            <div class="row">
+                <div class="col-2">
+                    <img [src]="item.product.image" id="product">
+                </div>
+                <div class="col-10">
+                    <div class="specs">{{item.product.name}}, {{item.product.description}}</div>
+                    <div class="row mt-2">
+                        <div class="col-3 new-price">{{ (item.product.price * item.quantity) | currency:'EGP '}}
+                        </div>
+
+                        <div class="offset-6 col-3 text-right">
+                            QTY:
+                            <select class="form-select" aria-label="Default select example" [(ngModel)]="item.quantity"
+                                (change)="changeQuantity($event, item)">
+                                <option *ngFor="let in of counter(item.product.countInStock); let j = index;">
+                                    {{j+1}}
+                                </option>
+                            </select>
+                        </div>
+
+                        <!-- <div class="offset-6 col-3 text-right">
+                                <label class="input-group-text" for="inputGroupSelect02">QTY</label>
+                                <select class="form-select" id="inputGroupSelect02" name="category" [(ngModel)]="item.quantity"
+                                (change)="changeQuantity($event, item)">
+                                    <option *ngFor="let in of counter(item.product.countInStock); let j = index;">
+                                        {{j+1}}
+                                    </option>
+                                </select>
+                            </div> -->
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-2">
+                <div class="col-5 specs"></div>
+                <!-- <div class="col-2 specs"></div> -->
+                <div class="offset-2 col-5 text-end" id="stock">Order now, only {{item.product.countInStock}} left
+                    in stock!</div>
+            </div>
+            <div class="row mt-2">
+                <div class="offset-2 col-2 specs">Condition:</div>
+                <div class="col-2 specs">{{item.product.isFeatured ? 'NEW' : 'USES'}}</div>
+            </div>
+            <div class="row mt-2">
+                <div class="offset-2 col-2 specs">Color:</div>
+                <div class="col-2 specs">
+                    {{item.product.color[0].toUpperCase() + item.product.color.substring(1)}}
+                </div>
+            </div>
+            <!-- <div class="row mt-2">
+                    <div class="offset-2 col-2 specs">Hard Disk Capacity:</div>
+                    <div class="col-2 specs">2 TB</div>
+                </div> -->
+            <div class="row mt-3">
+                <hr />
+            </div>
+            <div class="row">
+                <div class="mx-4 text-primary specs" style="cursor: pointer;" (click)="deleteFromCart(item.orderId)">
+                    Delete
+                </div>
+            </div>
+        </div>
+
+        <!-- <div class="row section p-3 mb-4">
+                <div class="row">
+                    <div class="col-2">
+                        <img src="../../../assets/images/product/1.jpg" id="product">
+                    </div>
+                    <div class="col-10">
+                        <div class="specs">Dell G5 15-5590 Gaming Laptop, intel core i7-9750H, 16GB RAM</div>
+                        <div class="row mt-2">
+                            <div class="col-3 new-price">21,400.00 EGP</div>
+                            <div class="offset-6 col-3 text-right">
+                                QTY
+                                <select>
+                                    <option selected>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row mt-2">
+                    <div class="offset-2 col-2 specs">Sold by:</div>
+                    <div class="col-2 specs">elwekam</div>
+                    <div class="offset-2 col-4" id="stock">Order now, only 8 left in stock!</div>
+                </div>
+                <div class="row mt-2">
+                    <div class="offset-2 col-2 specs">Condition:</div>
+                    <div class="col-2 specs">New</div>
+                </div>
+                <div class="row mt-2">
+                    <div class="offset-2 col-2 specs">Color:</div>
+                    <div class="col-2 specs">Black</div>
+                </div>
+                <div class="row mt-2">
+                    <div class="offset-2 col-2 specs">Hard Disk Capacity:</div>
+                    <div class="col-2 specs">2 TB</div>
+                </div>
+                <div class="row mt-3">
+                    <hr />
+                </div>
+                <div class="row">
+                    <div class="mx-4 text-primary specs">
+                        Delete
+                    </div>
+                </div>
+            </div> -->
+    </div>
+
+    <div class="mt-4 mb-5 mx-lg-4 col-lg-4">
+        <div class="row section">
+            <div class="col-12 mt-2">
+                Total:
+            </div>
+            <div class="col-12 mb-2">
+                <span class="total">{{totalPrice | currency:'EGP '}} </span>
+            </div>
+        </div>
+
+        <div class="row section mt-3">
+            <a class="col-12 btn p-3" id="checkout" routerLink="/checkout">
+                PROCEED TO CHECKOUT
+            </a>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>
+
+<p-toast position="top-center" key="c" [baseZIndex]="5000"></p-toast>

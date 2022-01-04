@@ -1,0 +1,19 @@
+.card-img-top {
+    width: 250px;
+    height: 170px;
+}
+
+.card-body {
+  height: 280px;
+}
+
+.old-price {
+  color: #AEAEAE;
+  text-decoration: line-through;
+}
+
+.new-price {
+  color: #006FCC;
+  font-size: 1.2rem;
+  font-weight: bold;
+}

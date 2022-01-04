@@ -1,0 +1,32 @@
+<p-menubar [model]="items">
+    <ng-template pTemplate="start">
+        <a href="/admin"><img src="../../../assets/images/header/m.png" height="40" class="p-mr-2"></a>
+        <span class="m-3">Welcome {{nameLabel}}</span>
+    </ng-template>
+    <ng-template pTemplate="end">
+        <button type="button" pButton label="Logout" class="p-button-outlined p-button-danger" icon="pi pi-power-off"
+            style="margin-left:.25em" (click)="logout()"></button>
+    </ng-template>
+</p-menubar>
+
+
+<router-outlet></router-outlet>
+
+<div class="mt-5 row container-fluid mx-0 px-0" *ngIf="router.url == '/admin'">
+    <div class="col-6 text-center">
+        <h4>TOTAL USERS: {{allUser.length}}</h4>
+        <p-chart type="pie" [data]="users" [style]="{'width': '40%', 'heigth': '20%'}" [responsive]="true"></p-chart>
+    </div>
+    <div class="col-6 text-center">
+        <h4>TOTAL PRODUCTS: {{allProducts.length}}</h4>
+        <p-chart type="pie" [data]="products" [style]="{'width': '40%', 'heigth': '20%'}" [responsive]="true"></p-chart>
+    </div>
+    <div class="col-12 text-center mt-2 mb-3">
+        <h4>TOTAL ORDERS: {{allOrders.length}}</h4>
+        <p-chart type="pie" [data]="orders" [style]="{'width': '40%', 'heigth': '20%'}" [responsive]="true"></p-chart>
+    </div>
+
+    <div class="col-12 text-center mb-4" *ngIf="profits > 0">
+        <h4>TOTAL PROFITS: {{profits}} EGP</h4>
+    </div>
+</div>

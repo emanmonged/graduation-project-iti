@@ -1,0 +1,348 @@
+<p-blockUI [blocked]="blockedDocument"></p-blockUI>
+
+<app-navbar></app-navbar>
+
+<app-second-navbar></app-second-navbar>
+
+<!-- spec section -->
+<div class="container specs mt-3 mt-lg-4">
+    <div class="row justify-content-md-center align-items-md-center mt-5">
+        <p class="payonline "> pay online for contactless deliviers</p>
+    </div>
+    <div class=" row  mt-5">
+        <div class=" col-12 col-md-3  part1">
+            <p class="parag">{{product.name}}</p>
+            <span> <a href=""> by {{product.brand}}, {{product.category.name}}</a></span>
+            <hr>
+            <img class=" mt-4 images" [src]="product.image">
+        </div>
+        <div class="col-12 col-md-3 ml-5 part2">
+
+            <h5 class="new-price"> {{ product.price | currency:'EGP '}} </h5>
+
+            <p>
+                <span class="old-price">
+                    {{ product.discount > 0 ? (product.price + product.discount | currency:'EGP '):''}}
+                </span>
+                - You save
+                <span> {{ product.discount > 0 ? (product.discount | currency:'EGP ') : (0 | currency:'EGP')}}</span>
+                <br>
+                All prices include VAT
+            </p>
+
+            <hr>
+            <h4> color:</h4>
+            <div style="font-size: 1.3rem;">{{product.color[0].toUpperCase() + product.color.substring(1)}}</div>
+            <hr>
+            <h4>Description</h4>
+            <p> <small>
+                    {{product.description}}
+                    <!-- Block the outside world and dive deep into your music with the Apple AirPods Pro.
+                        They sport a unique white color that is certain to turn many heads. With three sizes of
+                        flexible
+                        silicone tips to choose from,
+                        the Apple wireless headphones offer a customizable fit.
+                        Plus, the internal taper of these headphones matches your ears shape for a secure fit and
+                        noise
+                        cancellation.
+                        The ...  -->
+                </small></p>
+            <h5 style="color: #cccc;"> Other sellers</h5>
+            <p> <small><a href=""> (9) more offers </a>starting from 4,150.00 EGP </small></p>
+        </div>
+        <div class="col-12 col-md-3 part3">
+            <div class="top">
+                <p>Ship to Cairo <a href=""> (Change city) </a></p>
+                <p>Delivered<b> by Monday, Jul 19 </b></p>
+            </div>
+            <br>
+            <div>
+                <button *ngIf="!isAddedToCart && product.countInStock > 0" class="btn" id="addtocart"
+                    (click)="addToCart(product)">ADD TO CART</button>
+                <button *ngIf="isAddedToCart" class="btn" id="removefromcart" (click)="removeFromCart(product)">REMOVE
+                    FROM CART</button>
+                <button *ngIf="product.countInStock == 0" class="btn" disabled id="outofstock" pButton
+                    label="OUT OF STOCK" icon="pi pi-ban"></button>
+                <div class="text-danger" *ngIf="product.countInStock != 0">only {{product.countInStock}} left in stock!
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div>
+                    <h3 style="float: left;"> Condition:</h3>
+                    <p style="float: right;">{{product.isFeatured ? 'NEW': 'USED'}}</p>
+                </div>
+                <br><br>
+                <hr>
+                <div class="row p-2">
+                    Add to wish list <a href="" class="wishlist-btn">
+                        <fa-icon [icon]="faHeart" class="fa-2x"></fa-icon>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end of specs -->
+
+<!-- information -->
+<div class="container mt-4">
+    <h4>PRODUCT INFORMATION</h4>
+    <div class="specs">
+        <h5 class="mb-3">SPECIFICATIONS</h5>
+        <div class="row">
+            <h6 class="col col-md-4">Brand</h6>
+            <p class="col info">Apple</p>
+        </div>
+        <div class="row">
+            <h6 class="col col-md-4">Manufacturer Number</h6>
+            <p class="col info">MWP22ZE/A</p>
+        </div>
+        <div class="row">
+            <h6 class="col col-md-4">Package thickness</h6>
+            <p class="col info">9.8 centimeters</p>
+        </div>
+        <div class="row">
+            <h6 class="col col-md-4">Package weight in KGs</h6>
+            <p class="col info">240 grams</p>
+        </div>
+        <div class="row">
+            <h6 class="col col-md-4">Width</h6>
+            <p class="col info">2.16 centimeters</p>
+        </div>
+        <div class="row">
+            <h6 class="col col-md-4">Product weight</h6>
+            <p class="col info">0.0456 kilograms</p>
+        </div>
+        <div class="row">
+            <h6 class="col col-md-4">Model Number</h6>
+            <p class="col info">MWP22ZE/A</p>
+        </div>
+        <div class="row">
+            <h6 class="col col-md-4">Connectivity</h6>
+            <p class="col info">Wireless</p>
+        </div>
+        <div class="row">
+            <h6 class="col col-md-4">Compatible with</h6>
+            <p class="col info">Mobile Phones</p>
+        </div>
+        <div class="row">
+            <h6 class="col col-md-4">UPC-A</h6>
+            <p class="col info">
+                <fa-icon [icon]="faCheck" class="fa-check"></fa-icon>
+            </p>
+        </div>
+        <div class="row">
+            <h6 class="col col-md-4">External Product ID Type</h6>
+            <p class="col info">UPC-A</p>
+        </div>
+        <div class="row">
+            <h6 class="col col-md-4">Package height</h6>
+            <p class="col info">4.4 centimeters</p>
+        </div>
+        <div class="row">
+            <h6 class="col col-md-4">Package Width</h6>
+            <p class="col info">9.6 centimeters</p>
+        </div>
+        <div class="row">
+            <h6 class="col col-md-4">External Product ID</h6>
+            <p class="col info">190199246997</p>
+        </div>
+        <div class="row">
+            <h6 class="col col-md-4">Serial Scan Required</h6>
+            <p class="col info">
+                <fa-icon [icon]="faTimes" class="fa-times"></fa-icon>
+            </p>
+        </div>
+        <div class="row">
+            <h6 class="col col-md-4">Item EAN</h6>
+            <p class="col info">2725124292145</p>
+        </div>
+        <div class="row">
+            <h5 class="col">
+                <fa-icon [icon]="faClipboardList"></fa-icon> Audio
+            </h5>
+        </div>
+        <div class="row">
+            <h6 class="col col-md-4">Microphone included</h6>
+            <p class="col info">
+                <fa-icon [icon]="faCheck" class="fa-check"></fa-icon>
+            </p>
+        </div>
+        <div class="row">
+            <h5 class="col">
+                <fa-icon [icon]="faClipboardList"></fa-icon> Color
+            </h5>
+        </div>
+        <div class="row">
+            <h6 class="col col-md-4">Color</h6>
+            <p class="col info">White</p>
+        </div>
+        <div class="row">
+            <h5 class="col">
+                <fa-icon [icon]="faClipboardList"></fa-icon> Weight & Dimensions
+            </h5>
+        </div>
+        <div class="row">
+            <h6 class="col col-md-4">Height</h6>
+            <p class="col info">6.07 centimeters</p>
+        </div>
+        <div class="row">
+            <h5 class="col">
+                <fa-icon [icon]="faClipboardList"></fa-icon> Technical Information
+            </h5>
+        </div>
+        <div class="row">
+            <h6 class="col col-md-4">Type</h6>
+            <p class="col info">In Ear</p>
+        </div>
+        <div class="row">
+            <h5 class="col col-md-4">
+                <fa-icon [icon]="faClipboardList"></fa-icon> Technical Information
+            </h5>
+        </div>
+        <div class="row">
+            <h6 class="col col-md-4">Noise Cancelling</h6>
+            <p class="col info">
+                <fa-icon [icon]="faCheck" class="fa-check"></fa-icon>
+            </p>
+        </div>
+
+        <div class="row">
+            <hr />
+        </div>
+
+        <h5 class="mb-3">DESCRIPTION:</h5>
+        <div class="container">
+            <p class="description">
+                {{product.description}}
+                <!-- Block the outside world and dive deep into your music with the Apple AirPods Pro.
+                    They sport a unique white color that is certain to turn many heads. With three sizes of flexible
+                    silicone tips to choose from, the Apple wireless headphones offer a customizable fit. Plus, the
+                    internal taper of these headphones matches your ears shape for a secure fit and noise
+                    cancellation.
+                    The custom-built, high excursion, low-distortion drivers of the Apple Bluetooth headphones are
+                    responsible for delivering powerful bass. Similarly, to extend battery life and produce vibrant,
+                    clear and crisp sound, the AirPods Pro incorporate a high dynamic range amplifier. Owing to the
+                    incredible active noise cancellation of the AirPods Pro, you can enjoy a delightful experience
+                    listening to music, podcasts and anything else with the outside sound blocked. Similarly, for
+                    keeping you in touch with the surrounding, the AirPods Pro headphones features a transparency
+                    mode.
+                    The Apple headphones have excellent resistance against water and sweat, which means they can
+                    endure
+                    accidental water spills and splashes. Plus, these headphones have an impressive battery life
+                    that
+                    offers up to 4.5 hours of listening time and 3.5 hours of talk time with one-hour charging. -->
+            </p>
+            <h4>KEY FEATURES</h4>
+            <ul class="row description fa-ul">
+                <li class="col-12 col-md-6">
+                    <span class="fa-li">
+                        <fa-icon [icon]="faInfoCircle"></fa-icon>
+                    </span>Active
+                    Noise Cancellation
+                </li>
+                <li class="col-12 col-md-6">
+                    <span class="fa-li">
+                        <fa-icon [icon]="faInfoCircle"></fa-icon>
+                    </span>Transparency mode
+                </li>
+                <li class="col-12 col-md-6">
+                    <span class="fa-li">
+                        <fa-icon [icon]="faInfoCircle"></fa-icon>
+                    </span>Amazing
+                    audio quality
+                </li>
+                <li class="col-12 col-md-6">
+                    <span class="fa-li">
+                        <fa-icon [icon]="faInfoCircle"></fa-icon>
+                    </span>Sweat
+                    and
+                    water resistant (IPX4)
+                </li>
+                <li class="col-12 col-md-6">
+                    <span class="fa-li">
+                        <fa-icon [icon]="faInfoCircle"></fa-icon>
+                    </span>Quick
+                    charging in the case
+                </li>
+                <li class="col-12 col-md-6">
+                    <span class="fa-li">
+                        <fa-icon [icon]="faInfoCircle"></fa-icon>
+                    </span>Connectivity: Bluetooth 5.0
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- end of information -->
+
+<!-- recommendations -->
+<div class="container my-5" *ngIf="relatedProducts.length > 0">
+    <h5 style="cursor: pointer;">
+        More {{product.category.name[0].toUpperCase() + product.category.name.substring(1)}}
+    </h5>
+    <div class="specs">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
+            <a href="#" class="recommended" *ngFor="let product of relatedProducts">
+                <div class="col">
+                    <div class="text-center my-3">
+                        <img [src]="product.image" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">{{product.name + ', ' + product.category.name}}</p>
+                        <div class="old-price my-2">
+                            {{ product.discount > 0 ? (product.price + product.discount |
+                            currency:'EGP'):''}}
+                        </div>
+                        <div class="new-price"> {{ product.price | currency:'EGP '}} </div>
+                    </div>
+                </div>
+            </a>
+            <hr class="col d-md-none" />
+            <!-- <a href="#" class="recommended">
+                <div class="col">
+                    <div class="text-center my-3">
+                        <img src="../../../assets/images/product/2.jpg" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Hoco M31 Delighted Sound Earphones with Mic - Red</p>
+                        <div class="old-price">75.00 EGP</div>
+                        <div class="new-price">67.00 EGP</div>
+                    </div>
+                </div>
+            </a>
+            <hr class="col d-md-none" />
+            <a href="#" class="recommended">
+                <div class="col">
+                    <div class="text-center my-3">
+                        <img src="../../../assets/images/product/3.jpg" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Remax Sporty Bluetooth Earphone, Black - RB-S6</p>
+                        <div class="new-price">509.00 EGP</div>
+                    </div>
+                </div>
+            </a>
+            <hr class="col d-md-none" />
+            <a href="#" class="recommended">
+                <div class="col">
+                    <div class="text-center my-3">
+                        <img src="../../../assets/images/product/4.jpg" class="card-img-top" alt="...">
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">Hbq I7 Wireless Mono Single Earphone For Iphone And Android Phone -
+                            White</p>
+                        <div class="old-price">250.00 EGP</div>
+                        <div class="new-price">44.00 EGP</div>
+                    </div>
+                </div>
+            </a> -->
+        </div>
+    </div>
+</div>
+<!-- end of recommendations -->
+
+<app-footer></app-footer>
+
+<p-toast position="top-center" key="c" [baseZIndex]="5000"></p-toast>

@@ -1,0 +1,83 @@
+<div class="mt-5 mb-0 p-2 bg-secondary row container-fluid mx-0">
+    <h3 class="col-2">
+        {{admins.length > 0 ? admins.length + ' Admin(s)' : 'No Admins'}}
+    </h3>
+    <div class="offset-8 col-2 text-end">
+        <button pButton type="button" icon="pi pi-user-plus" label="ADD ADMIN" iconPos="left"
+            class="p-button-primary p-button-rounded" (click)="addAdmin()">
+        </button>
+    </div>
+</div>
+<table class="table table-dark table-hover mb-0" *ngIf="admins.length > 0">
+    <thead>
+        <tr>
+            <th scope="col">User</th>
+            <th scope="col">Name</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let admin of admins; let i = index">
+            <td>{{admin.email}}</td>
+            <td>{{admin.firstName + ' ' + admin.lastName}}</td>
+            <td>
+                <button pButton type="button" icon="pi pi-trash" iconPos="left" class="p-button-danger p-button-rounded"
+                    (click)="showConfirm(admin, 'You want to delete this admin')">
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<h3 class="mt-5 mb-0 p-2 bg-secondary">
+    {{users.length > 0 ? users.length + ' Customer(s)' : 'No Customers'}}
+</h3>
+<table class="table table-dark table-hover mb-4" *ngIf="users.length > 0">
+    <thead>
+        <tr>
+            <th scope="col">First Name</th>
+            <th scope="col">Last Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Address</th>
+            <th scope="col">Orders(Pending)</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let user of users; let i = index">
+            <td>{{user.firstName}}</td>
+            <td>{{user.lastName}}</td>
+            <td>{{user.email}}</td>
+            <td>{{user.address[0]? user.address[0].governorate + ', ' + user.address[0].city + ', ' +
+                user.address[0].area : 'Not Set'}}</td>
+            <td (click)="showOrders(user)" style="cursor: pointer;" class="text-primary">{{user.orders.length + '(' +
+                user.pendingOrders.length + ')'}}</td>
+            <td>
+                <button pButton type="button" icon="pi pi-trash" iconPos="left" class="p-button-danger p-button-rounded"
+                    (click)="showConfirm(user, 'You want to delete this customer')">
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<p-toast position="center" key="c" (onClose)="cancelDelete()" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div class="p-flex p-flex-column" style="flex: 1">
+            <div class="p-text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+            <div class="p-grid p-fluid">
+                <div class="p-col-6 mb-1">
+                    <button type="button" pButton (click)="delete()" label="Yes" class="p-button-danger"></button>
+                </div>
+                <div class="p-col-6">
+                    <button type="button" pButton (click)="cancelDelete()" label="No"
+                        class="p-button-secondary"></button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>

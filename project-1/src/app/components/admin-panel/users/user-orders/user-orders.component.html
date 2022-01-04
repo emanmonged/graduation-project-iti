@@ -1,0 +1,60 @@
+<h4 *ngIf="orders.length == 0">User has no orders</h4>
+
+<div class="p-col-12 p-md-4" *ngFor="let order of orders; let i = index">
+    <p-scrollPanel [style]="{width: '100%', height: '300px'}">
+        <div class="row">
+            <div class="col-12 mb-2">
+                <p-badge [value]="i+1+''"></p-badge>
+            </div>
+            <div class="col-6">
+                Order placed on: <b>{{order.dateOrdered | date: 'dd MMM yyyy'}}</b>
+            </div>
+            <div class="col-6">
+                Recipient: {{order.firstName + ' ' + order.lastName}}
+            </div>
+            <div class="col-6">
+                Order ID: {{order._id}}
+            </div>
+            <div class="col-6">
+                Payment method: {{order.paymentMethod}}
+            </div>
+            <div class="col-6" [ngSwitch]="order.status">
+                Order Status:
+                <p-badge [value]="order.status" severity="warning" *ngSwitchCase="'pending'"></p-badge>
+                <p-badge [value]="order.status" *ngSwitchCase="'out for delivery'"></p-badge>
+                <p-badge [value]="order.status" severity="success" *ngSwitchCase="'delivered'"></p-badge>
+                <p-badge [value]="order.status" severity="danger" *ngSwitchCase="'canceled'"></p-badge>
+                <p-badge [value]="order.status" severity="info" *ngSwitchCase="'returned'"></p-badge>
+            </div>
+            <div class="col-6">
+                Total: {{order.totalPrice}} EGP
+            </div>
+            <div class="col-12">
+                <span class="text-primary" style="cursor: pointer;" (click)="editOrder(order)">Edit Order</span>
+                <!-- <a style="text-decoration: none;" routerLink="">Edit Order</a> -->
+            </div>
+            <div class="col-12">
+                <hr />
+            </div>
+            <div class="row" *ngFor="let item of order.orderItems; let i = index">
+                <div class="col-2 text-center">
+                    <img [src]="item.product.image" style="width: 65px; height: 70px;">
+                </div>
+                <div class="col-10">
+                    <div class="col-12">
+                        {{item.product.name + ', '}}
+                    </div>
+                    <div class="col-12">
+                        {{item.product.description}}
+                    </div>
+                </div>
+                <div [class]="i == (order.orderItems.length - 1) ? 'col-12' : 'offset-1 col-10'">
+                    <hr *ngIf="i != (order.orderItems.length - 1)" />
+                </div>
+            </div>
+        </div>
+    </p-scrollPanel>
+    <div class="row">
+        <hr style="height: 0.5rem; color: black;" *ngIf="i != (orders.length - 1)" />
+    </div>
+</div>

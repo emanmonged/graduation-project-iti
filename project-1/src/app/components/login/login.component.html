@@ -1,0 +1,53 @@
+<p-toast position="top-center" key="tc"></p-toast>
+<div class=" mainwraper">
+    <div class="main  ">
+        <div>
+            <div class="row justify-content-md-center align-items-md-center">
+                <div class="text-center"> <a href="/home"><img style="width: 200px;"
+                            src="../../../assets/images/header/logo.png" alt="logo"></a></div>
+            </div>
+
+            <div class="row justify-content-md-center align-items-md-center">
+                <div class="offset-2 col-8 form-group login-form-Email" data-validate="Enter Email">
+                    <label>Email <span>*</span></label>
+                    <input type="email" id="email" name="email" [(ngModel)]="loginForm.email" email #prmEmail="ngModel"
+                        class="form-control" placeholder="Email " required />
+                    <div *ngIf="prmEmail.errors?.email" style="color: red;">
+                        please enter your e-mail.
+                    </div>
+                </div>
+
+                <div class="col-2">
+                </div>
+
+                <div class="offset-2 col-8 form-group login-form-Email" data-validate="Enter Password">
+                    <label>Password <span>*</span></label>
+                    <input type="password" id="password" name="password" [(ngModel)]="loginForm.password" password
+                        #prmPassword="ngModel" class="form-control" placeholder="Password" required />
+                    <div *ngIf="prmPassword.errors?.password" style="color: red;">
+                        please enter your name.
+                    </div>
+                </div>
+
+                <div class="col-2">
+                </div>
+
+                <div class="col-12 text-center">
+                    <button class="btn btn-primary px-5 py-2" (click)="login()">Log In</button>
+                </div>
+
+            </div>
+
+            <hr>
+            <div class="row  justify-content-md-center align-items-md-center">
+                <div class="col-md-6 col-sm-12">
+                    <div class="new-account">
+                        <p clas="prag">Need an account? </p>
+                        <a href="/register"><input type="button" id="logi" class="form-control"
+                                value="Create new account" /></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

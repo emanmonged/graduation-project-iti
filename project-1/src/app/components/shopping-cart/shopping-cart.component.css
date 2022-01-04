@@ -1,0 +1,44 @@
+#internalwrapper {
+  background-color: #F8F1A2;
+}
+
+#mainwrapper {
+  background-color: #FAFAFA;
+}
+
+.section {
+  background-color: white;
+  box-shadow: 1px 1px 5px #8f8e8e;
+}
+
+.new-price {
+  color: #006FCC;
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+#product {
+  width: 60px;
+  height: 60px;
+}
+
+#stock {
+  color: #EC5840;
+  font-weight: 700;
+}
+
+.specs {
+  font-weight: bold;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+#checkout {
+  border-radius: 0;
+  background-color: #8BBB3F;
+  color: #FFFFFF;
+  font-weight: bold;
+}

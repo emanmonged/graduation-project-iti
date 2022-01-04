@@ -1,0 +1,97 @@
+<p-blockUI [blocked]="blockedDocument"></p-blockUI>
+
+<div class="p-3">
+
+    <div class="form-floating my-3">
+        <input type="text" class="form-control" id="name" placeholder="Name" name="name" [(ngModel)]="editProduct.name">
+        <label for="name">Name</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="description" placeholder="Description" name="description"
+            [(ngModel)]="editProduct.description">
+        <label for="description">Description</label>
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Rich Description</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="7" ame="richDescription"
+            [(ngModel)]="editProduct.richDescription">
+            </textarea>
+    </div>
+
+    <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Product Image: </label>
+        <img [src]="product.image" style="width:100px; height: 80px;" class="mx-3">
+    </div>
+
+    <label for="avatar">New Image:</label>
+    <input type="file" id="avatar" class="form-control mb-3" accept="image/png, image/jpeg" name="image"
+        (change)="getFiles($event)" [(ngModel)]="editProduct.image">
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="brand" placeholder="Brand" name="brand"
+            [(ngModel)]="editProduct.brand">
+        <label for="brand">Brand</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="price" placeholder="Price" name="price"
+            [(ngModel)]="editProduct.price">
+        <label for="price">Price</label>
+    </div>
+
+    <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="discount" placeholder="Discount" name="discount"
+            [(ngModel)]="editProduct.discount">
+        <label for="discount">Discount</label>
+    </div>
+
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="inputGroupSelect02">Color</label>
+        <select class="form-select" id="color" name="color" [(ngModel)]="editProduct.color">
+            <option value="" selected disabled hidden></option>
+            <option value="red">Red</option>
+            <option value="green">Green</option>
+            <option value="blue">Blue</option>
+            <option value="black">Black</option>
+            <option value="white">White</option>
+            <option value="yellow">Yellow</option>
+            <option value="gold">Gold</option>
+            <option value="purple">Purple</option>
+            <option value="orange">Orange</option>
+            <option value="grey">Grey</option>
+            <option value="brown">Brown</option>
+            <option value="pink">Pink</option>
+        </select>
+    </div>
+
+    <div class="input-group mb-3">
+        <label class="input-group-text" for="category">Category</label>
+        <select class="form-select" id="category" name="category" [(ngModel)]="editProduct.category.id"
+            (change)="setCategory($event)">
+            <option *ngFor="let category of categories; let i = index" value={{category.id}}>
+                {{category.name[0].toUpperCase() + category.name.substring(1)}}
+            </option>
+        </select>
+    </div>
+
+    <div class="form-floating mb-2">
+        <input type="text" class="form-control" id="countInStock" placeholder="Count in Stock" name="countInStock"
+            [(ngModel)]="editProduct.countInStock">
+        <label for="countInStock">Count in Stock</label>
+    </div>
+
+    <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="isFeatured" name="isFeatured"
+            [(ngModel)]="editProduct.isFeatured">
+        <label class="form-check-label" for="isFeatured">{{editProduct.isFeatured? 'NEW' : 'USED'}}</label>
+    </div>
+
+    <div class="text-center mb-2">
+        <button class="btn btn-secondary px-5 py-2" (click)="cancel()">Cancel</button>
+        <button class="btn btn-success px-5 py-2 mx-2" (click)="saveEdit()">Save</button>
+    </div>
+</div>
+
+<p-toast position="top-center" key="tc" [baseZIndex]="5000"></p-toast>

@@ -1,0 +1,41 @@
+<div class="container text-center mt-3 mb-4">
+    <h3>Laptops</h3>
+</div>
+
+<div class="container-fluid">
+    <div class="container my-4">
+        <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
+            <div class="carousel-inner" role="listbox">
+                <div class="carousel-item active">
+                    <div class="row">
+                        <div class="col-md-3 mb-2" *ngFor="let laptop of laptops" (click)="showProduct(laptop)"
+                            style="cursor: pointer; height: 500px;">
+                            <div class="card mb-2">
+                                <div class="text-center">
+                                    <img class="card-img-top p-2" [src]="laptop.image" alt="Card image cap">
+                                </div>
+                                <div class="card-body">
+                                    <h5 class="card-title text-center">{{laptop.name}}</h5>
+                                    <p class="card-text mt-2">
+                                        {{laptop.description}}
+                                    </p>
+                                    <div class="text-center">
+                                        <p-rating class="p-my-1" [(ngModel)]="laptop.rating" [cancel]="false"
+                                            [iconOnStyle]="{color: '#FEBF00'}"></p-rating>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="old-price my-2">
+                                            {{ laptop.discount > 0 ? (laptop.price + laptop.discount |
+                                            currency:'EGP'):''}}
+                                        </div>
+                                        <div class="new-price"> {{ laptop.price | currency:'EGP '}} </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

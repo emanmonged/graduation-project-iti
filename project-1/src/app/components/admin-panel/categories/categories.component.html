@@ -1,0 +1,51 @@
+<div class="container mt-5 text-center" *ngIf="categories.length == 0">
+    <h3>NO CATEGORIES YET. <a href="/admin/new-category" style="text-decoration: none;">Add One!</a></h3>
+</div>
+<table class="table table-success table-hover mt-5" *ngIf="categories.length > 0">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Name</th>
+            <th scope="col">Icon</th>
+            <th scope="col">Color</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let category of categories; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{category.name[0].toUpperCase() + category.name.substring(1)}}</td>
+            <td>{{category.icon? category.icon[0].toUpperCase() + category.icon.substring(1) : ''}}</td>
+            <td>{{category.color? category.color[0].toUpperCase() + category.color.substring(1) : ''}}</td>
+            <td>
+                <button pButton type="button" icon="pi pi-pencil" iconPos="left" class="p-button-info mx-2"
+                    (click)="edit(category)">
+                </button>
+                <button pButton type="button" icon="pi pi-trash" iconPos="left" class="p-button-danger"
+                    (click)="showConfirm(category)">
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<p-toast position="center" key="c" (onClose)="cancelDelete()" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div class="p-flex p-flex-column" style="flex: 1">
+            <div class="p-text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+            <div class="p-grid p-fluid">
+                <div class="p-col-6 mb-1">
+                    <button type="button" pButton (click)="delete()" label="Yes" class="p-button-success"></button>
+                </div>
+                <div class="p-col-6">
+                    <button type="button" pButton (click)="cancelDelete()" label="No"
+                        class="p-button-secondary"></button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>
